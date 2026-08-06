@@ -40,7 +40,7 @@ export function Navbar() {
           {/* Logo */}
           <a href="#" className="group relative z-10">
             <span className="font-serif text-xl sm:text-2xl font-semibold tracking-tight text-[#231714]">
-              Nagu's
+              Nagu's <span className="italic font-normal text-[#7B1F1F]">Spice House</span>
             </span>
           </a>
 
