@@ -2,10 +2,14 @@
 
 @layer base {
   :root {
-    --color-cream: #F6F1E7;
-    --color-cream-light: #FAF7F2;
-    --color-dark-brown: #3A2417;
-    --color-dark-brown-muted: #5C4033;
+    /* Frame-matched background — sampled from spice jar image edges */
+    --color-bg: #E5DFD3;
+    --color-bg-warm: #DDD7CB;
+    --color-bg-light: #EBE6DC;
+
+    /* Updated Premium Palette (Warm Obsidian Charcoal instead of dark brown) */
+    --color-dark: #231714;
+    --color-dark-muted: #4A352F;
     --color-turmeric: #D8A230;
     --color-turmeric-light: #EBB84D;
     --color-leaf-green: #5E7D43;
@@ -13,72 +17,97 @@
     --color-deep-red: #7B1F1F;
     --color-deep-red-dark: #581414;
 
-    --font-serif: 'Cormorant Garamond', Georgia, serif;
+    /* Typography */
+    --font-serif: 'Cormorant Garamond', Georgia, 'Times New Roman', serif;
     --font-sans: 'Manrope', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+
+    /* Easing */
+    --ease-out-expo: cubic-bezier(0.16, 1, 0.3, 1);
+    --ease-out-quart: cubic-bezier(0.25, 1, 0.5, 1);
+  }
+
+  html {
+    scroll-behavior: smooth;
   }
 
   body {
-    background-color: var(--color-cream);
-    color: var(--color-dark-brown);
+    background-color: var(--color-bg);
+    color: var(--color-dark);
     font-family: var(--font-sans);
     overflow-x: hidden;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
   }
 
   h1, h2, h3, h4, h5, h6 {
     font-family: var(--font-serif);
+    font-weight: 400;
+  }
+
+  ::selection {
+    background-color: var(--color-turmeric);
+    color: var(--color-dark);
   }
 }
 
-/* Custom Typography & Utility Classes */
-.font-serif-luxury {
+/* ─── Typography Utilities ─── */
+.font-serif {
   font-family: var(--font-serif);
 }
 
-.font-sans-luxury {
+.font-sans {
   font-family: var(--font-sans);
 }
 
-/* Luxury Glassmorphism & Borders */
-.glass-panel {
-  background: rgba(246, 241, 231, 0.65);
-  backdrop-filter: blur(16px);
-  -webkit-backdrop-filter: blur(16px);
-  border: 1px solid rgba(58, 36, 23, 0.08);
+/* ─── Glass Panels ─── */
+.glass-light {
+  background: rgba(229, 223, 211, 0.7);
+  backdrop-filter: blur(24px);
+  -webkit-backdrop-filter: blur(24px);
+  border: 1px solid rgba(35, 23, 20, 0.08);
 }
 
-.glass-panel-dark {
-  background: rgba(58, 36, 23, 0.85);
-  backdrop-filter: blur(20px);
-  -webkit-backdrop-filter: blur(20px);
-  border: 1px solid rgba(216, 162, 48, 0.2);
+.glass-dark {
+  background: rgba(35, 23, 20, 0.94);
+  backdrop-filter: blur(24px);
+  -webkit-backdrop-filter: blur(24px);
+  color: var(--color-bg-light);
 }
 
-/* Smooth Subtle Grain & Texture overlays if needed */
-.luxury-gradient-text {
-  background: linear-gradient(135deg, #3A2417 0%, #7B1F1F 50%, #D8A230 100%);
-  -webkit-background-clip: text;
-  background-clip: text;
-  -webkit-text-fill-color: transparent;
+/* ─── Section Divider ─── */
+.section-divider {
+  height: 1px;
+  background: linear-gradient(
+    90deg,
+    transparent 0%,
+    rgba(35, 23, 20, 0.12) 20%,
+    rgba(35, 23, 20, 0.12) 80%,
+    transparent 100%
+  );
 }
 
-.turmeric-glow {
-  box-shadow: 0 10px 30px -5px rgba(216, 162, 48, 0.35);
-}
-
-/* Custom Scrollbar */
+/* ─── Custom Scrollbar ─── */
 ::-webkit-scrollbar {
-  width: 8px;
+  width: 6px;
 }
 
 ::-webkit-scrollbar-track {
-  background: var(--color-cream);
+  background: var(--color-bg);
 }
 
 ::-webkit-scrollbar-thumb {
-  background: rgba(58, 36, 23, 0.2);
-  border-radius: 4px;
+  background: rgba(35, 23, 20, 0.15);
+  border-radius: 3px;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: rgba(58, 36, 23, 0.4);
+  background: rgba(35, 23, 20, 0.3);
+}
+
+/* ─── Mobile touch improvements ─── */
+@media (hover: none) {
+  ::-webkit-scrollbar {
+    width: 0;
+    display: none;
+  }
 }
