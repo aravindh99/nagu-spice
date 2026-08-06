@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Menu, X, ShoppingBag } from 'lucide-react';
 import { useCart } from '../../context/CartContext';
+import { SocialShare } from './SocialShare';
 
 const NAV_LINKS = [
   { name: 'Blends', href: '#products' },
@@ -59,6 +60,8 @@ export function Navbar() {
 
           {/* Desktop CTA & Cart Badge */}
           <div className="hidden md:flex items-center gap-4">
+            <SocialShare variant="button" />
+
             <a
               href={generateWhatsAppUrl()}
               target="_blank"
@@ -138,6 +141,10 @@ export function Navbar() {
               ))}
             </nav>
 
+            <div className="mt-8">
+              <SocialShare variant="inline" />
+            </div>
+
             <motion.a
               href={generateWhatsAppUrl()}
               target="_blank"
@@ -146,7 +153,7 @@ export function Navbar() {
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               transition={{ delay: 0.4 }}
-              className="mt-12 text-xs uppercase tracking-[0.2em] font-semibold text-[#E5DFD3] bg-[#231714] rounded-full px-8 py-3.5 shadow-lg"
+              className="mt-6 text-xs uppercase tracking-[0.2em] font-semibold text-[#E5DFD3] bg-[#231714] rounded-full px-8 py-3.5 shadow-lg"
             >
               {totalItems > 0 ? `WhatsApp Order (${totalItems})` : 'Order via WhatsApp'}
             </motion.a>

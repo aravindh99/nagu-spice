@@ -7,6 +7,7 @@ import { ProductsSection } from './components/sections/ProductsSection';
 import { ProcessTimeline } from './components/sections/ProcessTimeline';
 import { TestimonialsSection } from './components/sections/TestimonialsSection';
 import { WhatsAppCart } from './components/ui/WhatsAppCart';
+import { SocialShare } from './components/ui/SocialShare';
 import { MapPin, Phone } from 'lucide-react';
 
 function App() {
@@ -48,7 +49,7 @@ function App() {
             </p>
 
             {/* Location & Kitchen Phone Callout */}
-            <div className="flex flex-col sm:flex-row items-center justify-center gap-6 text-xs text-[#231714]/75 font-sans mb-10 pb-8 border-b border-[#231714]/10 w-full max-w-xl">
+            <div className="flex flex-col sm:flex-row items-center justify-center gap-6 text-xs text-[#231714]/75 font-sans mb-8 pb-8 border-b border-[#231714]/10 w-full max-w-xl">
               <div className="flex items-center gap-2">
                 <MapPin className="w-4 h-4 text-[#D8A230]" />
                 <span>Chennai, Tamil Nadu – 600001</span>
@@ -60,6 +61,11 @@ function App() {
                   +91 6379592047 (Mon – Sat, 9 AM – 7 PM)
                 </a>
               </div>
+            </div>
+
+            {/* Social Sharing Section */}
+            <div className="mb-8 w-full max-w-xl">
+              <SocialShare variant="inline" />
             </div>
 
             {/* Copyright Line */}
